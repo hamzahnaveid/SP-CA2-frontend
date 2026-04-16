@@ -24,6 +24,30 @@ export class StorageService {
     return sessionStorage.getItem(this.TOKEN);
   }
 
+  getUserRole(): string {
+    const user = this.getUser();
+    if (user == null) {
+      return ''
+    }
+    return user.role
+  }
+
+  isAdminLoggedIn(): boolean {
+    if (this.getToken() == null) {
+      return false;
+    }
+    const role: string = this.getUserRole();
+    return role == "ADMIN";
+  }
+
+  isCustomerLoggedIn(): boolean {
+    if (this.getToken() == null) {
+      return false;
+    }
+    const role: string = this.getUserRole();
+    return role == "CUSTOMER";
+  }
+
   signOut(): void {
     sessionStorage.clear();
   }
