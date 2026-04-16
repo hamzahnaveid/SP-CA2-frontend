@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
     constructor( private fb: FormBuilder,
       private snackBar: MatSnackBar,
       private authService: AuthService,
-      private router: Router){
+      private router: Router,
+      private storage: StorageService){
   
     }
   
@@ -38,7 +40,12 @@ export class LoginComponent {
         (response) => {
           console.log(response)
           this.snackBar.open("Successfully logged in!", "Close", {duration: 5000});
-          this.router.navigateByUrl("/login");
+          if (this.storage.isAdminLoggedIn()) {
+            this.router.navigateByUrl('/admin/dashboard');
+          }
+          else {
+            this.router.navigateByUrl('customer/home');
+          }
         },
         (error) => {
           console.error(error)
