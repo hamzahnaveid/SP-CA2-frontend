@@ -14,4 +14,8 @@ export class AuthService {
   register(registerRequest:any, role:string): Observable<any> {
     return this.http.post(URL_TEMPLATE + "register?role=" + role, registerRequest);
   }
+
+  login(loginRequest:any): Observable<any> {
+    return this.http.post(URL_TEMPLATE + "login", loginRequest)
+  }
 }
