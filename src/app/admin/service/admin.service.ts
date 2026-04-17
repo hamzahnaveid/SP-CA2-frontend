@@ -22,4 +22,8 @@ export class AdminService {
   addProduct(productRequest:any): Observable<any>{
     return this.http.post(URL_TEMPLATE + 'add-product', productRequest)
   }
+
+  getAllProducts(): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'get-products')
+  }
 }
