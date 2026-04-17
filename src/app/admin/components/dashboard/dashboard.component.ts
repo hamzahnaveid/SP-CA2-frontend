@@ -22,7 +22,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.getAllProducts();
     this.searchProductForm = this.fb.group({
-      name: [null, [Validators.required]]
+      term: [null]
     })
   }
 
@@ -47,9 +47,9 @@ export class DashboardComponent {
 
   search() {
     this.products = [];
-    const name = this.searchProductForm.get('name')!.value;
+    const term = this.searchProductForm.get('term')!.value;
 
-    this.adminService.getAllProductsByName(name).subscribe(
+    this.adminService.getAllProductsByTerm(term).subscribe(
       (response) => {
         console.log(response)
         response.forEach(element => {
