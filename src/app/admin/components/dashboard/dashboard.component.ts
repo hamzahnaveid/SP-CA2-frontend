@@ -12,6 +12,10 @@ export class DashboardComponent {
 
   products: any[] = [];
   searchProductForm!: FormGroup;
+  sortProductForm!: FormGroup;
+
+  sortBy: string = 'name';
+  type: string = 'desc';
 
   constructor( 
     private adminService: AdminService,
@@ -22,7 +26,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.getAllProducts();
     this.searchProductForm = this.fb.group({
-      term: [null]
+      term: ['']
     })
   }
 
@@ -49,8 +53,9 @@ export class DashboardComponent {
     this.products = [];
     const term = this.searchProductForm.get('term')!.value;
 
-    this.adminService.getAllProductsByTerm(term).subscribe(
+    this.adminService.getAllProductsByTermAndSort(term, this.sortBy, this.type).subscribe(
       (response) => {
+        console.log(term)
         console.log(response)
         response.forEach(element => {
           element.processedImg = 'data:image/jpeg;base64,' + element.image;
@@ -60,6 +65,8 @@ export class DashboardComponent {
     );
   }
 
-  
-
+  sort(type: string) {
+    this.type = type;
+    this.search();
+  }
 }

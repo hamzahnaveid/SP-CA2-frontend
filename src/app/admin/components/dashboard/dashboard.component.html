@@ -7,6 +7,19 @@
                 <mat-icon>search</mat-icon>
             </button>
     </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Sort By</mat-label>
+            <mat-select [(value)]="sortBy">
+                <mat-option value="name">Name</mat-option>
+                <mat-option value="price">Price</mat-option>
+                <mat-option value="manufacturer">Manufacturer</mat-option>
+                <mat-option value="stock">Stock</mat-option>                
+            </mat-select>
+  </mat-form-field>
+
+  <button mat-button type="button" (click)="sort('asc')">Ascending</button>
+  <button mat-button type="button" (click)="sort('desc')">Descending</button>
 </form>
 
 <div class="product-list">

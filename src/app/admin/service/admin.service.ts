@@ -27,7 +27,7 @@ export class AdminService {
     return this.http.get(URL_TEMPLATE + 'get-products')
   }
 
-  getAllProductsByTerm(term:any): Observable<any>{
-    return this.http.get(URL_TEMPLATE + 'search?term=' + term)
+  getAllProductsByTermAndSort(term:any, sortBy:any, type:any): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'search?term=' + term + '&sortBy=' + sortBy + '&type=' + type)
   }
 }
