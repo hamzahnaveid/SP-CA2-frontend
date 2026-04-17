@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from '../AngularMaterialModule';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     DashboardComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
