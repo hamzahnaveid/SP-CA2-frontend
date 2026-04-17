@@ -49,6 +49,17 @@ export class DashboardComponent {
     );
   }
 
+  deleteProduct(productId:any) {
+    this.adminService.deleteProduct(productId).subscribe(
+      (response) => {
+        this.snackBar.open('Product deleted successfully', 'Close'), {
+          duration: 5000
+        }
+      }
+    );
+    this.getAllProducts();
+  }
+
   search() {
     this.products = [];
     const term = this.searchProductForm.get('term')!.value;
