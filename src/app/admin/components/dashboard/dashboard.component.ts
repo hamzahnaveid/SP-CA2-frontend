@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../service/admin.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +11,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DashboardComponent {
 
   products: any[] = [];
+  searchProductForm!: FormGroup;
 
   constructor( 
     private adminService: AdminService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
     this.getAllProducts();
+    this.searchProductForm = this.fb.group({
+      name: [null, [Validators.required]]
+    })
   }
 
   getAllProducts(){
@@ -35,6 +41,21 @@ export class DashboardComponent {
               duration: 5000,
               panelClass: 'error-snackbar'
             });
+      }
+    );
+  }
+
+  search() {
+    this.products = [];
+    const name = this.searchProductForm.get('name')!.value;
+
+    this.adminService.getAllProductsByName(name).subscribe(
+      (response) => {
+        console.log(response)
+        response.forEach(element => {
+          element.processedImg = 'data:image/jpeg;base64,' + element.image;
+          this.products.push(element);
+        })
       }
     );
   }

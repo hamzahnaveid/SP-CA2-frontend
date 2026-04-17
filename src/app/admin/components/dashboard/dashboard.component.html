@@ -1,4 +1,16 @@
+<form [formGroup]="searchProductForm" class="search-form" (submit)="search()">
+    <mat-form-field appearance="outline" class="search-input">
+        <mat-label>Enter keyword (name or category) to search</mat-label>
+            <input matInput formControlName="name">
+
+            <button mat-button matSuffix color="primary">
+                <mat-icon>search</mat-icon>
+            </button>
+    </mat-form-field>
+</form>
+
 <div class="product-list">
+
     <mat-card class="product-card" *ngFor="let product of products">
         <div class="product-image">
             <img [src]="product.processedImg" alt="product-image">
@@ -15,16 +27,16 @@
                     <span class="info-value">€{{ product.price }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Category</span>
+                    <span class="info-label">Category: </span>
                     <span class="info-value">{{ product.category.name }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Manufacturer</span>
+                    <span class="info-label">Manufacturer: </span>
                     <span class="info-value">{{ product.manufacturer }}</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">Stock: </span>
-                    <span class="info-value">€{{ product.stock }}</span>
+                    <span class="info-value">{{ product.stock }}</span>
                 </div>
 
             </div>

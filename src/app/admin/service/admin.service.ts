@@ -26,4 +26,8 @@ export class AdminService {
   getAllProducts(): Observable<any>{
     return this.http.get(URL_TEMPLATE + 'get-products')
   }
+
+  getAllProductsByName(name:any): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'search/' + name)
+  }
 }
