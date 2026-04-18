@@ -69,7 +69,29 @@ export class HomeComponent {
     this.search();
   }
 
-  addToCart(productId:any) {
+  addToCart(productId:any, stock: number) {
+    if (stock <= 0) {
+      this.snackBar.open("Sorry, this product is out of stock.", "Close", {
+          duration: 5000,
+          panelClass: 'error-snackbar'
+      });
+      return;
+    }
 
+    this.customerService.addToCart(productId).subscribe(
+      (response) => {
+        console.log(response)
+        this.snackBar.open("Added to cart!", "Close", {
+          duration: 5000
+        });
+      },
+      (error) => {
+        console.log(error)
+        this.snackBar.open("Unable to add to cart.", "Close", {
+          duration: 5000
+        });
+      }
+
+    )
   }
 }
