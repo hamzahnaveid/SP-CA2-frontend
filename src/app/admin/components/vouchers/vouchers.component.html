@@ -1,0 +1,31 @@
+<div class="container" style="padding: 30px;">
+    <mat-card>
+        <mat-card-content>
+            <table mat-table [dataSource]="vouchers" class="mat-elevation-z8">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>Voucher ID</th>
+                    <td mat-cell *matCellDef="let voucher">{{ voucher.id }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let voucher">{{ voucher.name }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="discount">
+                    <th mat-header-cell *matHeaderCellDef>Discount</th>
+                    <td mat-cell *matCellDef="let voucher">{{ voucher.discount }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="code">
+                    <th mat-header-cell *matHeaderCellDef>Code</th>
+                    <td mat-cell *matCellDef="let voucher">{{ voucher.code }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="['id', 'name', 'discount', 'code']"></tr>
+                <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'discount', 'code']"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+</div>

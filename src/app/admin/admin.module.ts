@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from '../AngularMaterialModule';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddVoucherComponent } from './components/add-voucher/add-voucher.component';
+import { VouchersComponent } from './components/vouchers/vouchers.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     AdminComponent,
     DashboardComponent,
     AddCategoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddVoucherComponent,
+    VouchersComponent
   ],
   imports: [
     CommonModule,

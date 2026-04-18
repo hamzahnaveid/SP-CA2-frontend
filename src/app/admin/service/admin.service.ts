@@ -34,4 +34,12 @@ export class AdminService {
   getAllProductsByTermAndSort(term:any, sortBy:any, type:any): Observable<any>{
     return this.http.get(URL_TEMPLATE + 'search?term=' + term + '&sortBy=' + sortBy + '&type=' + type)
   }
+
+  addVoucher(voucherDto:any): Observable<any>{
+    return this.http.post(URL_TEMPLATE + 'add-voucher', voucherDto)
+  }
+
+  getAllVouchers(): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'get-vouchers')
+  }
 }
