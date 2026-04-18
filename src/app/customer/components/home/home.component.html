@@ -57,7 +57,12 @@
             <mat-divider></mat-divider>
 
             <div class="actions">
-                <button mat-raised-button color="primary" class="add-button" (click)="addToCart(product.id, product.stock)">
+                <mat-form-field appearance="outline" class="quantity-field">
+                    <mat-label>Qty</mat-label>
+                    <input matInput type="number" min="1" [max]="product.stock" [(ngModel)]="product.quantity" name="quantity-{{product.id}}">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="add-button" (click)="addToCart(product.id, product.stock, product.quantity)">
                     Add to cart
                 </button>
             </div>

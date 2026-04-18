@@ -20,10 +20,11 @@ export class CustomerService {
     return this.http.get(URL_TEMPLATE + 'search?term=' + term + '&sortBy=' + sortBy + '&type=' + type)
   }
 
-  addToCart(productId:any): Observable<any>{
+  addToCart(productId:any, quantity:number): Observable<any>{
     const cartDto = {
       productId: productId,
-      userEmail: this.storage.getUser().email
+      userEmail: this.storage.getUser().email,
+      quantity: quantity
     }
 
     return this.http.post(URL_TEMPLATE + 'add-to-cart', cartDto)

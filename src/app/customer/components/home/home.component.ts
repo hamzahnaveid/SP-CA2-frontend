@@ -69,7 +69,7 @@ export class HomeComponent {
     this.search();
   }
 
-  addToCart(productId:any, stock: number) {
+  addToCart(productId:any, stock: number, quantity: number) {
     if (stock <= 0) {
       this.snackBar.open("Sorry, this product is out of stock.", "Close", {
           duration: 5000,
@@ -78,7 +78,7 @@ export class HomeComponent {
       return;
     }
 
-    this.customerService.addToCart(productId).subscribe(
+    this.customerService.addToCart(productId, quantity).subscribe(
       (response) => {
         console.log(response)
         this.snackBar.open("Added to cart!", "Close", {
