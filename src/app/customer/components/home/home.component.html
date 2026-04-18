@@ -1,1 +1,69 @@
-<p>home works!</p>
+<form [formGroup]="searchProductForm" class="search-form" (submit)="search()">
+    <mat-form-field appearance="outline" class="search-input">
+        <mat-label>Enter keyword (name or category) to search</mat-label>
+            <input matInput formControlName="term">
+
+            <button mat-button matSuffix color="primary">
+                <mat-icon>search</mat-icon>
+            </button>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Sort By</mat-label>
+            <mat-select [(value)]="sortBy">
+                <mat-option value="name">Name</mat-option>
+                <mat-option value="price">Price</mat-option>
+                <mat-option value="manufacturer">Manufacturer</mat-option>
+                <mat-option value="stock">Stock</mat-option>                
+            </mat-select>
+  </mat-form-field>
+
+  <button mat-button type="button" (click)="sort('asc')">Ascending</button>
+  <button mat-button type="button" (click)="sort('desc')">Descending</button>
+</form>
+
+<div class="product-list">
+
+    <mat-card class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+            <img [src]="product.processedImg" alt="product-image">
+        </div>
+        <div class="product-details">
+            <h2 class="product-name">{{ product.name }}</h2>
+            <p class="product-description"> {{ product.description }}</p>
+
+            <mat-divider></mat-divider>
+        
+            <div class="product-info">
+                <div class="info-row">
+                    <span class="info-label">Price: </span>
+                    <span class="info-value">€{{ product.price }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Category: </span>
+                    <span class="info-value">{{ product.category.name }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Manufacturer: </span>
+                    <span class="info-value">{{ product.manufacturer }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Stock: </span>
+                    <span class="info-value">{{ product.stock }}</span>
+                </div>
+
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" class="add-button" (click)="addToCart(product.id)">
+                    Add to cart
+                </button>
+            </div>
+
+        </div>
+
+    </mat-card>
+
+</div>
