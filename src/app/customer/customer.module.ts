@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from '../AngularMaterialModule';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
   declarations: [
     CustomerComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

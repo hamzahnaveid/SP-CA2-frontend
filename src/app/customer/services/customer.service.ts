@@ -29,4 +29,9 @@ export class CustomerService {
 
     return this.http.post(URL_TEMPLATE + 'add-to-cart', cartDto)
   }
+
+  getCartByUserEmail(): Observable<any>{
+    const userEmail = this.storage.getUser().email
+    return this.http.get(URL_TEMPLATE + 'cart/' + userEmail)
+  }
 }
