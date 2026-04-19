@@ -39,4 +39,14 @@ export class CustomerService {
     const userEmail = this.storage.getUser().email
     return this.http.get(URL_TEMPLATE + 'apply-voucher/' + userEmail + '/' + code)
   }
+
+  placeOrder(orderDto:any): Observable<any>{
+    orderDto = {
+      userEmail: this.storage.getUser().email,
+      address: orderDto.address,
+      payment: orderDto.payment
+    }
+    console.log(orderDto)
+    return this.http.post(URL_TEMPLATE + 'place-order', orderDto)
+  }
 }

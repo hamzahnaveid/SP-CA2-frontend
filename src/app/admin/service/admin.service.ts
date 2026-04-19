@@ -42,4 +42,8 @@ export class AdminService {
   getAllVouchers(): Observable<any>{
     return this.http.get(URL_TEMPLATE + 'get-vouchers')
   }
+
+  getOrders(): Observable<any>{
+    return this.http.get(URL_TEMPLATE  + 'get-orders')
+  }
 }

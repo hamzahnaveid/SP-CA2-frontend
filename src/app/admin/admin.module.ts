@@ -11,6 +11,7 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddVoucherComponent } from './components/add-voucher/add-voucher.component';
 import { VouchersComponent } from './components/vouchers/vouchers.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { VouchersComponent } from './components/vouchers/vouchers.component';
     AddCategoryComponent,
     AddProductComponent,
     AddVoucherComponent,
-    VouchersComponent
+    VouchersComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
