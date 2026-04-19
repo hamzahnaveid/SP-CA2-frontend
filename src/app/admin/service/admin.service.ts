@@ -46,4 +46,8 @@ export class AdminService {
   getOrders(): Observable<any>{
     return this.http.get(URL_TEMPLATE  + 'get-orders')
   }
+
+  toNextState(orderId:number): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'next-state/' + orderId)
+  }
 }

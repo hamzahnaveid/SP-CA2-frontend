@@ -17,13 +17,30 @@ export class OrdersComponent {
   ) {}
 
   ngOnInit() {
-
+    this.getOrders();
   }
 
   getOrders() {
     this.adminService.getOrders().subscribe(
       (response) => {
+        console.log(response)
         this.orders = response;
+      }
+    )
+  }
+
+  toNextState(orderId:number) {
+    this.adminService.toNextState(orderId).subscribe(
+      (response) => {
+        this.snackBar.open("Successfully moved to next state!", "Close", {
+          duration: 5000
+        })
+        this.getOrders();
+      },
+      (error) => {
+        this.snackBar.open("Order has already been fully processed", "Close", {
+          duration: 5000
+        })
       }
     )
   }
