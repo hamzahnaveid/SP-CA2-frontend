@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from '../AngularMaterialModule';
 import { CartComponent } from './components/cart/cart.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { OrderItemsComponent } from './components/order-items/order-items.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
     CustomerComponent,
     HomeComponent,
     CartComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    MyOrdersComponent,
+    OrderItemsComponent
   ],
   imports: [
     CommonModule,

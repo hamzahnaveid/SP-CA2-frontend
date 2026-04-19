@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="order-item" *ngFor="let item of orderItems">
+        <div class="item-info">
+            <div class="item-image">
+                <img [src]="item.cartDto.image" alt="item-image"/>
+            </div>
+            <div class="item-details">
+                <div class="item-row">
+                    <div class="item-name" [ngClass]="{ 'highlight': item.highlighted }">
+                        {{ item.product.name }}
+                    </div>
+                    <div class="item-price">€{{ item.price }}</div>
+                    <div class="quantity-controls">
+                        <span class="quantity">Qty: {{ item.quantity }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button mat-raised-button color="warn" (click)="closeForm()" class="close-button">Close</button>
+    </div>
+</div>

@@ -49,4 +49,13 @@ export class CustomerService {
     console.log(orderDto)
     return this.http.post(URL_TEMPLATE + 'place-order', orderDto)
   }
+
+  getMyOrders(): Observable<any>{
+    const userEmail = this.storage.getUser().email;
+    return this.http.get(URL_TEMPLATE + 'get-my-orders/' + userEmail)
+  }
+
+  getOrderItems(orderId): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'get-order-items/' + orderId)
+  }
 }
