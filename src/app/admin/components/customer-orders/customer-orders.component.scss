@@ -1,0 +1,14 @@
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px;
+}
+
+.close-button {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 12px 24px;
+}

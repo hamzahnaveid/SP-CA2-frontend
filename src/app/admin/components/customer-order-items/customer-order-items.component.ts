@@ -1,32 +1,31 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { CustomerService } from '../../services/customer.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { AdminService } from '../../service/admin.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-order-items',
-  templateUrl: './order-items.component.html',
-  styleUrls: ['./order-items.component.scss']
+  selector: 'app-customer-order-items',
+  templateUrl: './customer-order-items.component.html',
+  styleUrls: ['./customer-order-items.component.scss']
 })
-export class OrderItemsComponent {
+export class CustomerOrderItemsComponent {
 
   orderItems: any[] = [];
-
+  
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private customerService: CustomerService,
+    private adminService: AdminService,
     private snackBar: MatSnackBar,
     public dialog: MatDialog 
   ) {}
-
+  
   ngOnInit() {
     this.getItems();
   }
-
+  
   getItems() {
     this.orderItems = [];
-    this.customerService.getOrderItems(this.data.orderId).subscribe(
+    this.adminService.getOrderItemsByOrderId(this.data.orderId).subscribe(
       (response) => {
         console.log(response)
         this.orderItems = response
@@ -42,8 +41,9 @@ export class OrderItemsComponent {
       }
     )
   }
-
+  
   closeForm() {
-    this.dialog.closeAll();
+    this.dialog.getDialogById
   }
+
 }

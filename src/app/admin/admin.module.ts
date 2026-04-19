@@ -12,6 +12,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AddVoucherComponent } from './components/add-voucher/add-voucher.component';
 import { VouchersComponent } from './components/vouchers/vouchers.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
+import { CustomerOrderItemsComponent } from './components/customer-order-items/customer-order-items.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { OrdersComponent } from './components/orders/orders.component';
     AddProductComponent,
     AddVoucherComponent,
     VouchersComponent,
-    OrdersComponent
+    OrdersComponent,
+    CustomersComponent,
+    CustomerOrdersComponent,
+    CustomerOrderItemsComponent
   ],
   imports: [
     CommonModule,
