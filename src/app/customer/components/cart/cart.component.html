@@ -30,9 +30,25 @@
         <div class="total-price">
             Final Amount: €{{ order.amount }}
         </div>
+        <div class="total-price" *ngIf="order.voucherName != null">
+            Voucher Applied: €{{ order.voucherName }}
+        </div>
         <div>
             <button mat-raised-button color="primary">Place Order</button>
         </div>
+    </div>
+
+    <div class="container" *ngIf="order.voucherName == null">
+        <form [formGroup]="voucherForm" (ngSubmit)="applyVoucher()">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Discount Code</mat-label>
+                <input matInput type="text" placeholder="Code" formControlName="code" />
+                <mat-error *ngIf="voucherForm.get('code')?.hasError('required')">Please enter a valid code before applying a discount</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" type="submit">Apply Discount</button>
+        </form>
+
     </div>
 
 </div>

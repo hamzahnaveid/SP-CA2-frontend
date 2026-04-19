@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -14,6 +14,8 @@ export class CartComponent {
   cartItems: any[] = [];
   order: any;
 
+  voucherForm!: FormGroup
+
   constructor(
     private customerService: CustomerService,
     private snackBar: MatSnackBar,
@@ -22,7 +24,28 @@ export class CartComponent {
   ) {}
 
   ngOnInit() {
+    this.voucherForm = this.fb.group({
+      code: ['', [Validators.required]]
+    })
     this.getCart();
+  }
+
+  applyVoucher() {
+    this.customerService.applyVoucher(this.voucherForm.get(['code'])!.value).subscribe(
+      (response) => {
+        console.log(response)
+        this.snackBar.open("Discount applied successfully!", "Close", {
+          duration: 5000
+        });
+        this.getCart();
+      },
+
+      (error) => {
+        this.snackBar.open("Invalid voucher", "Close", {
+          duration: 5000
+        });
+      }
+    )
   }
 
   getCart() {

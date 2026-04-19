@@ -34,4 +34,9 @@ export class CustomerService {
     const userEmail = this.storage.getUser().email
     return this.http.get(URL_TEMPLATE + 'cart/' + userEmail)
   }
+
+  applyVoucher(code:any): Observable<any>{
+    const userEmail = this.storage.getUser().email
+    return this.http.get(URL_TEMPLATE + 'apply-voucher/' + userEmail + '/' + code)
+  }
 }

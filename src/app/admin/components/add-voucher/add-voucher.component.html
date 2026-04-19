@@ -15,7 +15,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Discount</mat-label>
+            <mat-label>Discount (%)</mat-label>
             <input matInput type="text" placeholder="Discount" formControlName="discount"/>
             <mat-error *ngIf="voucherForm.get('discount')?.hasError('required')">Please enter a value for the discount provided by the voucher.</mat-error>
         </mat-form-field>
