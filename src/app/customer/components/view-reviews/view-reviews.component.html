@@ -1,0 +1,14 @@
+<h1 class="section-heading">Customer Reviews</h1>
+<div *ngIf="reviews" class="review-list">
+    <div *ngFor="let review of reviews" class="review-card">
+        <div class="review-details">
+            <h2 class="details-row">{{ review.description }}</h2>
+            <div class="details-row">
+                <h3 class="rating">Rating: {{ review.rating }} </h3>
+            </div>
+            <div class="details-row">
+                <h3 class="username">Username: {{ review.user.name }}</h3>
+            </div>
+        </div>
+    </div>
+</div>

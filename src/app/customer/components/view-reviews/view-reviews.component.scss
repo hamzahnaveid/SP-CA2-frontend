@@ -1,0 +1,34 @@
+.section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+}
+
+.review-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.review-card .details-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-card .rating,
+.review-card .username {
+    font-size: 16px;
+    color: #555;
+}
+ 
