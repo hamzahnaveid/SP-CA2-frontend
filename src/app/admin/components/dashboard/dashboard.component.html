@@ -1,6 +1,6 @@
 <form [formGroup]="searchProductForm" class="search-form" (submit)="search()">
     <mat-form-field appearance="outline" class="search-input">
-        <mat-label>Enter keyword (name or category) to search</mat-label>
+        <mat-label>Enter keyword (name, manufacturer, or category)</mat-label>
             <input matInput formControlName="term">
 
             <button mat-button matSuffix color="primary">

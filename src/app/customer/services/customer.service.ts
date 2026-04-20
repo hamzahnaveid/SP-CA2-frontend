@@ -58,4 +58,12 @@ export class CustomerService {
   getOrderItems(orderId): Observable<any>{
     return this.http.get(URL_TEMPLATE + 'get-order-items/' + orderId)
   }
+
+  addReview(reviewDto:any): Observable<any>{
+    return this.http.post(URL_TEMPLATE + 'add-review', reviewDto)
+  }
+
+  getAllReviews(productId:any): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'get-reviews/' + productId)
+  }
 }
