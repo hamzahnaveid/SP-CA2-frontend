@@ -23,8 +23,16 @@ export class AdminService {
     return this.http.post(URL_TEMPLATE + 'add-product', productRequest)
   }
 
+  getProductById(productId:any): Observable<any>{
+    return this.http.get(URL_TEMPLATE + 'get-product/' + productId)
+  }
+
   deleteProduct(productId:any): Observable<any>{
     return this.http.delete(URL_TEMPLATE + 'delete-product/' + productId)
+  }
+
+  updateProduct(productId:any, productDto:any) {
+    return this.http.post(URL_TEMPLATE + "update-product/" + productId, productDto)
   }
 
   getAllProducts(): Observable<any>{

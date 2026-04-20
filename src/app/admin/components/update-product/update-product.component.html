@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>Add Product</h2>
-    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <h2>Update Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
 
         <div class="file-upload-container">
             <label class="file-upload-label">
@@ -13,6 +13,13 @@
                 <div class="circle-image">
                     <img [src]="imagePreview" alt="Selected image" class="preview-image">
                 </div>
+            </div>
+
+            <div *ngIf="existingImage" class="image-preview">
+                <div class="circle-image">
+                    <img [src]="existingImage" alt="Existing Image" class="preview-image">
+                </div>
+
             </div>
         </div>
 
@@ -46,7 +53,7 @@
 
         <mat-form-field  appearance="outline" class="form-field">
             <mat-label>Stock Quantity</mat-label>
-            <input matInput type="number" placeholder="Stock Quantity" formControlName="stockQuantity"/>
+            <input matInput type="number" placeholder="Stock Quantity" formControlName="stock"/>
             <mat-error *ngIf="productForm.get('stockQuantity')?.hasError('required')">Please enter the stock quantity</mat-error>
         </mat-form-field>
 
@@ -56,10 +63,8 @@
             <mat-error *ngIf="productForm.get('description')?.hasError('required')">Please enter a description</mat-error>
         </mat-form-field>
         
-        <button mat-raised-button color="primary" type="submit">Add Product</button>
+        <button mat-raised-button color="primary" type="submit">Update Product</button>
 
     </form>
 
 </div>
-
-

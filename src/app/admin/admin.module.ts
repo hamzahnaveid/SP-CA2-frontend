@@ -15,6 +15,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
 import { CustomerOrderItemsComponent } from './components/customer-order-items/customer-order-items.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CustomerOrderItemsComponent } from './components/customer-order-items/c
     OrdersComponent,
     CustomersComponent,
     CustomerOrdersComponent,
-    CustomerOrderItemsComponent
+    CustomerOrderItemsComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,
